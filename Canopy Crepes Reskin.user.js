@@ -348,7 +348,7 @@
         },
     ]
     };
-
+    
     const INGREDIENTS = {
         1: { canonical: 'Leechroot Mushroom', reskin: 'Mire Chestnut' },
         2: { canonical: 'Sweet Grass', reskin: 'Sunflower Seeds' },
@@ -485,7 +485,7 @@
     // =========================================================
     // REPLACEMENT LOGIC
     // =========================================================
-    // --- Patch failutre dialogue ---
+    // --- Patch failure dialogue ---
 
     function patchFailText(node) {
         node.querySelectorAll('strong.theme-text-accent-1').forEach(el => {
@@ -500,7 +500,7 @@
         });
     }
 
-    // --- Dialog replacement ---
+    // --- Dialogue replacement ---
     function patchDialogText(node) {
         if (!node || !node.textContent.trim()) return;
 
