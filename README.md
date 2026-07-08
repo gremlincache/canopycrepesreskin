@@ -31,7 +31,7 @@ This means I've missed something when it comes to matching the text of that orde
 
 ## Feedback and issues
 
-- Open an [issue on GitHub]([https://github.com/gremlincache/fr-coliseum-tracker/issues](https://github.com/gremlincache/canopycrepesreskin/issues)) if you have a GitHub account
+- Open an [issue on GitHub](https://github.com/gremlincache/canopycrepesreskin/issues) if you have a GitHub account
 - Poke me on [tumblr](https://gremlincache.tumblr.com) (anonymous asks are open)
 
 I am not an experienced developer, so if something breaks I will do my best but no promises on turnaround time ..b
