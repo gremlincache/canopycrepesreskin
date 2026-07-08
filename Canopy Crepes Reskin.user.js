@@ -87,7 +87,7 @@
     'Gillie': [
         {
             flavourMatch: `Hi. Ready for my order? It's simple.`,
-            flavourHTML: `Hi. Ready for my order? It's simple. I'll have some <strong>fruit</strong> in a </strong>toasted wrap</strong>.`,
+            flavourHTML: `Hi. Ready for my order? It's simple. I'll have some <strong>fruit</strong> in a <strong>toasted wrap</strong>.`,
             clarifyMatch: `Having trouble? Sorry, people say I should be more descriptive.`,
             clarifyHTML: `Having trouble? Sorry, people say I should be more descriptive. I want 1 serving of <strong class="theme-text-accent-1">any Fruit</strong> in a <strong class="theme-text-accent-1">Toasted wrap</strong>, and no toppings.`,
         },
@@ -122,7 +122,7 @@
             flavourMatch: `Hey there, high roller!`,
             flavourHTML: `Hey there, high roller! My money pouch is feelin' a little light today, so just gimme a serving of those delish <strong>dark bramble berries</strong> and toss on the <strong>duneberry stuff</strong>. I'll be outta yer hair in no time.`,
             clarifyMatch: `Listen friend, I know I only asked for`,
-            clarifyHTML: `Listen friend, I know I only asked for 1 serving of <strong class="theme-text-accent-1">Blackberries<stron/g>, but you don't gotta skimp on the portion size, ya know? Same goes for the <strong class="theme-text-accent-1">Charged Duneberry Jam</strong>, I want that wrap coated!`,
+            clarifyHTML: `Listen friend, I know I only asked for 1 serving of <strong class="theme-text-accent-1">Blackberries</strong>, but you don't gotta skimp on the portion size, ya know? Same goes for the <strong class="theme-text-accent-1">Charged Duneberry Jam</strong>, I want that wrap coated!`,
         },
         {
             flavourMatch: `Hey, hi, how ya doin', great,`,
@@ -188,7 +188,7 @@
             flavourMatch: `I'm considering a very specific tincture for my hunger today.`,
             flavourHTML: `I'm considering a very specific tincture for my hunger today. Something with crunch, like <strong>seeds</strong>, yet <strong>rich and bittersweet</strong>. And I would like this combination on a <strong>toasty wrap</strong>, bare of any toppings!`,
             clarifyMatch: `Drat, I was too vague again,`,
-            clarifyHTML: `Drat, I was too vague again, my potions master is always scolding me for that! I'm simply asking for 1 serving each of<strong class="theme-text-accent-1">Sunflower Seeds</strong> and <strong class="theme-text-accent-1">Chocolate Chips</strong> on a <strong class="theme-text-accent-1">toasted wrap. No toppings, please.`,
+            clarifyHTML: `Drat, I was too vague again, my potions master is always scolding me for that! I'm simply asking for 1 serving each of<strong class="theme-text-accent-1">Sunflower Seeds</strong> and <strong class="theme-text-accent-1">Chocolate Chips</strong> on a <strong class="theme-text-accent-1">toasted wrap</strong>. No toppings, please.`,
         },
         {
             flavourMatch: `I wonder, do you have a favorite at this delightful shop?`,
@@ -349,6 +349,8 @@
     ]
     };
     
+    // --- Ingredient name reskin ---
+    // These are used to correct the dialogue on failure, when a NPC states what they wanted (that you missed).
     const INGREDIENTS = {
         1: { canonical: 'Leechroot Mushroom', reskin: 'Mire Chestnut' },
         2: { canonical: 'Sweet Grass', reskin: 'Sunflower Seeds' },
@@ -375,6 +377,11 @@
         19: { canonical: 'Earthworm Paste', reskin: 'Heart Rose Marmalade' },
         20: { canonical: 'Crystal Jellyfish Slush', reskin: 'Charged Duneberry Jam' },
     };
+
+    // =========================================================
+    // SECTION 2: IMAGE REPLACEMENTS
+    // NOTE: The ingredient IDs the game uses for order completion are sent from the server and are never affected by this. These replacements are purely visual.
+    // =========================================================
 
     const BASE = 'https://raw.githubusercontent.com/gremlincache/canopycrepesreskin/refs/heads/main/images/';
 
@@ -483,10 +490,52 @@
     };
 
     // =========================================================
-    // REPLACEMENT LOGIC
+    // SECTION 3: REPLACEMENT LOGIC
+    // NOTE: editing the script below might break the replacement logic, so only edit this if you absolutely need to!
     // =========================================================
-    // --- Patch failure dialogue ---
 
+    // --- Order validation to check for formatting errors or missing entries ---
+        function validateOrders() {
+            for (const [npc, orders] of Object.entries(ORDERS)) {
+                orders.forEach((order, i) => {
+                    if (order.flavourMatch && !order.flavourHTML) {
+                        console.warn(`[Reskin] ${npc} order ${i}: flavourMatch is set but flavourHTML is missing`);
+                    }
+                    if (order.clarifyMatch && !order.clarifyHTML) {
+                        console.warn(`[Reskin] ${npc} order ${i}: clarifyMatch is set but clarifyHTML is missing`);
+                    }
+
+                    if (order.clarifyHTML === ` `) {
+                        console.warn(`[Reskin] Empty string in ${npc} order ${i} clarifyHTML`);
+                    }
+
+                    if (order.clarifyHTML.trim().length === 0) {
+                        console.warn(`[Reskin] Empty string in ${npc} order ${i} clarifyHTML`);
+                    }
+
+                    if (order.flavourHTML.trim().length === 0) {
+                        console.warn(`[Reskin] Empty string in ${npc} order ${i} flavourHTML`);
+                    }
+
+                    for (const field of ['flavourHTML', 'clarifyHTML']) {
+                        const html = order[field];
+                        if (!html) continue;
+                        const opens = (html.match(/<strong/g) || []).length;
+                        const closes = (html.match(/<\/strong>/g) || []).length;
+                        if (opens !== closes) {
+                            console.warn(`[Reskin] Mismatched <strong> tags in ${npc} order ${i} (${field}): ${opens} open, ${closes} close`);
+                        }
+                        if (html.includes('</div>')) {
+                            console.warn(`[Reskin] Stray </div> in ${npc} order ${i} (${field})`);
+                        }
+                    }
+                })
+            }
+        }
+
+    validateOrders();
+
+    // --- Patch failure dialogue ---
     function patchFailText(node) {
         node.querySelectorAll('strong.theme-text-accent-1').forEach(el => {
             // Check each canonical name and replace if it matches
