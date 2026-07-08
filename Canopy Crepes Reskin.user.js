@@ -6,8 +6,8 @@
 // @match        https://www1.flightrising.com/play/canopy-crepes
 // @grant        none
 // @run-at       document-start
-// @updateURL    ADD UPDATE
-// @downloadURL  ADD DOWNLOAD URL
+// @updateURL    https://github.com/gremlincache/canopycrepesreskin/raw/refs/heads/main/Canopy%20Crepes%20Reskin.user.js
+// @downloadURL  https://github.com/gremlincache/canopycrepesreskin/raw/refs/heads/main/Canopy%20Crepes%20Reskin.user.js
 // ==/UserScript==
 
 (function () {
