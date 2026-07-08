@@ -348,7 +348,7 @@
         },
     ]
     };
-    
+
     // --- Ingredient name reskin ---
     // These are used to correct the dialogue on failure, when a NPC states what they wanted (that you missed).
     const INGREDIENTS = {
@@ -386,6 +386,9 @@
     const BASE = 'https://raw.githubusercontent.com/gremlincache/canopycrepesreskin/refs/heads/main/images/';
 
     const IMAGE_REPLACEMENTS = {
+        // ---- Logo ----
+        'logo': BASE + 'logo.png',
+
         // ---- Ingredient pile icons ----
         'ingredient-pile-1': BASE + 'ingredient-pile-1.png',
         'ingredient-pile-2': BASE + 'ingredient-pile-2.png',
