@@ -159,9 +159,9 @@
         },
         {
             flavourMatch: `Oh, I wish you had made the show last night`,
-            flavourHTML: `Oh, I wish you had made the show last night, the prop work with the chandelier was simply marvell–ahem, of course, my order! I'd like some comfort food, perhaps some <strong>chestnuts</strong> and <strong>almonds</strong>, with a little <strong>chocolate</strong> as a treat. Hm, for toppings… I'll be daring, how about some <strong>nut spread</strong>?`,
+            flavourHTML: `Oh, I wish you had made the show last night, the prop work with the chandelier was simply marvell–ahem, of course, my order! I'd like some comfort food, perhaps some <strong>chestnuts</strong> and <strong>almonds</strong>, with a little <strong>chocolate</strong> as a treat. Hm, for toppings… I'll be daring, how about some <strong>honey</strong>?`,
             clarifyMatch: `I know, I know, it's such a daring departure from my usual go-tos!`,
-            clarifyHTML: `I know, I know, it's such a daring departure from my usual go-tos! It's all right, it's all still perfectly safe for my voice. I'll have 1 serving each of <strong class="theme-text-accent-1">Mire Chestnut</strong>, <strong class="theme-text-accent-1">Luminous Almonds</strong>, and <strong class="theme-text-accent-1">Chocolate Chips</strong>, all topped off with a spread of <strong class="theme-text-accent-1">Sunkernel Nut Butter</strong>. Thank you!`,
+            clarifyHTML: `I know, I know, it's such a daring departure from my usual go-tos! It's all right, it's all still perfectly safe for my voice. I'll have 1 serving each of <strong class="theme-text-accent-1">Mire Chestnut</strong>, <strong class="theme-text-accent-1">Luminous Almonds</strong>, and <strong class="theme-text-accent-1">Chocolate Chips</strong>, all topped off with a spread of <strong class="theme-text-accent-1">Honey Drizzle</strong>. Thank you!`,
         },
         {
             flavourMatch: `Ahem, I need pure ingredients today.`,
@@ -194,7 +194,7 @@
             flavourMatch: `I wonder, do you have a favorite at this delightful shop?`,
             flavourHTML: `Hello, how are you today? I wonder, do you have a favorite at this delightful shop? I think our tastes are probably quite different, but I'd still love to see what you can come up with. Let's do some <strong>nuts</strong> and sweets—specifically, <strong>confections</strong>—with two toppings, one made of <strong>nuts</strong> and the other made of <strong>something made in a hive</strong>!`,
             clarifyMatch: `Looks like you're having trouble.`,
-            clarifyHTML: `Looks like you're having trouble. I wanted 1 serving each of <strong class="theme-text-accent-1">any Nut</strong> and <strong class="theme-text-accent-1">any Confection</strong>—your choice—with a topping of <strong class="theme-text-accent-1">Sunkernel Nut Butter</strong> and another topping of <strong class="theme-text-accent-1">Honney Drizzle</strong>. Did you mess that up, or did I? Hm. Doesn't matter!`,
+            clarifyHTML: `Looks like you're having trouble. I wanted 1 serving each of <strong class="theme-text-accent-1">any Nut</strong> and <strong class="theme-text-accent-1">any Confection</strong>—your choice—with a topping of <strong class="theme-text-accent-1">Sunkernel Nut Butter</strong> and another topping of <strong class="theme-text-accent-1">Honey Drizzle</strong>. Did you mess that up, or did I? Hm. Doesn't matter!`,
         },
         {
             flavourMatch: `Hi! So nice to see you! I know the exact concoction`,
@@ -373,9 +373,9 @@
         16: { canonical: 'Pufferfish', reskin: 'Peppermint' },
 
         17: { canonical: 'Sour Green Applesauce', reskin: 'Sunkernel Nut Butter' },
-        18: { canonical: 'Red Breasted Goose Stew', reskin: 'Honey Drizzle' },
-        19: { canonical: 'Earthworm Paste', reskin: 'Heart Rose Marmalade' },
-        20: { canonical: 'Crystal Jellyfish Slush', reskin: 'Charged Duneberry Jam' },
+        18: { canonical: 'Earthworm Paste', reskin: 'Honey Drizzle' },
+        19: { canonical: 'Crystal Jellyfish Slush', reskin: 'Heart Rose Marmalade' },
+        20: { canonical: 'Red Breasted Goose Stew', reskin: 'Charged Duneberry Jam' },
     };
 
     // =========================================================
