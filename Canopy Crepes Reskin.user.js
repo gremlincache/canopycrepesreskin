@@ -374,8 +374,8 @@
 
         17: { canonical: 'Sour Green Applesauce', reskin: 'Sunkernel Nut Butter' },
         18: { canonical: 'Earthworm Paste', reskin: 'Honey Drizzle' },
-        19: { canonical: 'Crystal Jellyfish Slush', reskin: 'Heart Rose Marmalade' },
-        20: { canonical: 'Red Breasted Goose Stew', reskin: 'Charged Duneberry Jam' },
+        19: { canonical: 'Red Breasted Goose Stew', reskin: 'Charged Duneberry Jam' },
+        20: { canonical: 'Crystal Jellyfish Slush', reskin: 'Heart Rose Marmalade' },
     };
 
     // =========================================================
